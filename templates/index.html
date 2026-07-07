@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection System</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <i class="fa-solid fa-brain logo-icon"></i>
+            </div>
+            <h1>Brain Tumor Detection System</h1>
+            <p class="subtitle">Upload MRI Scan and Detect Tumor Type using Deep Learning</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Card -->
+            <div class="card upload-card">
+                <form id="upload-form">
+                    <div class="drop-zone" id="drop-zone">
+                        <input type="file" id="file-input" name="file" accept="image/jpeg, image/png, image/jpg" hidden>
+                        <div class="drop-zone-content">
+                            <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                            <h3>Drag & Drop MRI Scan</h3>
+                            <p>or <span class="browse-link">browse</span> from device</p>
+                            <span class="file-info">Supports: JPG, JPEG, PNG</span>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Preview Area -->
+                <div class="preview-container hidden" id="preview-container">
+                    <div class="image-wrapper">
+                        <img id="image-preview" src="" alt="MRI Preview">
+                        <button class="remove-btn" id="remove-btn" title="Remove image">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <button class="btn btn-primary" id="predict-btn">
+                        <span class="btn-text">Predict Tumor</span>
+                        <i class="fa-solid fa-microscope btn-icon"></i>
+                        <span class="spinner hidden"><i class="fa-solid fa-circle-notch fa-spin"></i></span>
+                    </button>
+                    <div class="error-message hidden" id="error-message" style="margin-top: 15px; width: 100%; padding: 15px; background: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--error-color); color: var(--error-color); border-radius: 4px;">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <span id="error-text">An error occurred.</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>For research and educational purposes only. Always consult a medical professional.</p>
+        </footer>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result - Brain Tumor Detection System</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <i class="fa-solid fa-brain logo-icon"></i>
+            </div>
+            <h1>Brain Tumor Detection System</h1>
+            <p class="subtitle">Deep Learning Analysis Results</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Result Card -->
+            <div class="card result-card" id="result-card">
+                <h2>Analysis Result</h2>
+                <div class="result-details">
+                    <div class="result-icon-container" id="result-icon-container">
+                        <i class="fa-solid fa-user-md result-icon"></i>
+                    </div>
+                    <div class="result-text">
+                        <h3 id="tumor-type" class="tumor-type">Analyzing...</h3>
+                        <div class="confidence-container">
+                            <div class="confidence-header">
+                                <span>Confidence Score</span>
+                                <span id="confidence-value" class="confidence-value">0%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Analysis Section -->
+                <div class="analysis-section" id="analysis-section">
+                    <div class="analysis-item">
+                        <h4><i class="fa-solid fa-circle-info"></i> Description</h4>
+                        <p id="tumor-description">Loading description...</p>
+                    </div>
+                    <div class="analysis-item">
+                        <h4><i class="fa-solid fa-chart-bar"></i> Performance Analysis</h4>
+                        <p id="performance-analysis" style="margin-bottom: 15px;">Loading performance data...</p>
+                        <div class="chart-container" style="position: relative; height:250px; width:100%; background: rgba(255,255,255,0.6); padding: 15px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05);">
+                            <canvas id="performanceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metrics Card -->
+            <div class="card metrics-card" id="metrics-card">
+                <h2>Model Training Metrics</h2>
+                <div class="chart-container" style="position: relative; height:300px; width:100%; margin-bottom: 20px;">
+                    <canvas id="accuracyChart"></canvas>
+                </div>
+                <div class="chart-container" style="position: relative; height:300px; width:100%;">
+                    <canvas id="lossChart"></canvas>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn btn-secondary" id="back-btn" style="width: auto; padding: 12px 30px;">
+                    <i class="fa-solid fa-arrow-left"></i> Analyze Another Scan
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>For research and educational purposes only. Always consult a medical professional.</p>
+        </footer>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/result.js') }}"></script>
+</body>
+
+</html>
